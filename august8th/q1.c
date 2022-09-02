@@ -14,8 +14,10 @@ void display(struct polynomial p1,int n){
     int i;
     printf("The polynomial %d is:\n",n);
     for(i=0;i<=p1.expo;i++){
-        printf("The coefficient of x^%d is %d\n",i,p1.coeff[i]);
+        printf("%dx^%d",p1.coeff[i],i);
+        if(i<p1.expo)printf(" + ");
     }
+    
 }
 void addition(struct polynomial p1,struct polynomial p2,struct polynomial *p3){
     int i;
@@ -37,6 +39,10 @@ void multiplication(struct polynomial p1,struct polynomial p2,struct polynomial 
     display(p4,4);
 }
 void insert(struct polynomial *p1,struct polynomial *p2){
+    for(int i=0;i<10;i++){
+        p1->coeff[i]=0;
+        p2->coeff[i]=0;
+    }
     printf("Input the exponent of the polynomial 1:\n");
     scanf("%d",&p1->expo);
     printf("Enter the coefficients :\n");
@@ -60,7 +66,7 @@ int main(){
     int op,n;   
     x:
     printf("\nEnter the operation number you want:\n");
-    printf("1.Insertion of values\n2.Displaying th evalues\n3.Addition of two polynomials\n4.Multiplying two polynomials\n5.Exit\n");
+    printf("1.Insertion of values\n2.Displaying the values\n3.Addition of two polynomials\n4.Multiplying two polynomials\n5.Exit\n");
     scanf("%d",&op);
     switch (op)
     {
@@ -70,6 +76,7 @@ int main(){
         break;
     case 2:
         display(p1,1);
+        printf("\n");
         display(p2,2);
         goto x;
         break;

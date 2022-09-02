@@ -3,21 +3,18 @@
 int index=0;
 struct book{
     int bookno;
-    char title[30];
+    char title[30];  
     int price;
 }b[5];
 int maxprice(struct book b1[]){
-    int max;
+    int max=b[0].price;
     for(int i=0;i<5;i++){
-        for(int j=i+1;j<5;j++){
-            if(b[i].price>b[j].price){
+       
+            if(b[i].price>max){
                 max=b[i].price;
                 index=i;
             }
-            else
-                max=b[j].price;
-                index=j;
-        }
+        
     }
     return max;
 }
