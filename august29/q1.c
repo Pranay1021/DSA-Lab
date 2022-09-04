@@ -22,7 +22,6 @@ void creation(struct node*ptr){
 void traversal(struct node*ptr){
     printf("The values in the list are \n");
     while(ptr->next!=NULL){
-        
         printf("%d ",ptr->info);
         ptr=ptr->next;
     }
@@ -33,22 +32,27 @@ struct node* insertion_beginning(struct node *head){
     printf("Enter the value :");
     scanf("%d",&new->info);
     new->next=head;
-    return new;
-    
+    return new;   
 }
-void deletion(struct node*ptr){
-    int n,i=1;
+struct node* deletion(struct node*ptr){
+    int m,i=1;
     struct node*curr,*prev;
     curr=ptr;
     printf("Enter the position you want to delete :\n");
-    scanf("%d",&n);
-    while(i<n){
+    scanf("%d",&m);
+    if(m==1){
+        ptr=curr->next;
+        free(curr);
+        return ptr;
+    }
+    while(i<m){
      prev=curr;
      curr=curr->next; 
      i++;  
     }
     prev->next=curr->next;
     free(curr);
+    return ptr;
 }
 
 int main(){
@@ -72,7 +76,7 @@ int main(){
         }
     else if(n==4)
         {
-        deletion(start);
+        start=deletion(start);
         traversal(start);
         }
     else if(n==5){
