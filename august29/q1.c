@@ -11,7 +11,7 @@ void creation(struct node*ptr){
     scanf("%d",&n);
      printf("Enter the data : \n");
     while(i<=n){
-        struct node* curr=(struct node*)malloc(sizeof(struct node*));    
+        struct node* curr=(struct node*)malloc(sizeof(struct node));    
         scanf("%d",&ptr->info);
         ptr->next=curr;
         ptr=curr;
@@ -57,7 +57,7 @@ struct node* deletion(struct node*ptr){
 
 int main(){
     struct node *start,*head;
-    head=(struct node*)malloc(sizeof(struct node*));   
+    head=(struct node*)malloc(sizeof(struct node));   
     start=head;
     int n=7;
     while(n!=5){
