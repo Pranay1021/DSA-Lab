@@ -116,7 +116,7 @@ int main(){
         traversal(start);
         }
     else if(n==5){
-        printf("Thnak You\nBye-Bye");
+        printf("Thank You\nBye-Bye");
         return 0;
     }
     else{

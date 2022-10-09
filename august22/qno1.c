@@ -5,7 +5,8 @@ int main(){
     int row,column;
     printf("Enter the rows and columns:");
     scanf("%d%d",&row,&column);
-    int **matrix=(int **)malloc(row*sizeof(int*));
+    int **matrix;
+    matrix=(int **)malloc(row*sizeof(int*));
     for(int i=0;i<row;i++){
         matrix[i]=(int*)malloc(sizeof(int)*column);
     }
@@ -16,7 +17,7 @@ int main(){
             scanf("%d",&matrix[i][j]);
         }
     }
-
+ 
     printf("The sparse matrix is :\n");
     for(int i=0;i<row;i++){
         for(int j=0;j<column;j++){
