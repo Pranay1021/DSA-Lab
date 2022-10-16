@@ -49,7 +49,7 @@ void display(struct node *disp){
 int main(){
     int n=7;
     while(n!=4){
-    printf("Enter the operation you want :\n");
+    printf("\nEnter the operation you want :\n");
     printf("1.Push the info of the student\n2.pop\n3.Display\n4.Exit\n");
     scanf("%d",&n);
     if(n==1){

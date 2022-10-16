@@ -5,32 +5,30 @@ struct node{
     int data;
     struct node *next;
 };
-struct node *top=NULL;
-void push(){
+
+void push(struct node **top){
     struct node *new=malloc(sizeof(struct node));
     if(new==NULL){
         printf("Memory not available\n");
     }
     printf("Enter the data to push\n");
     scanf("%d",&new->data);
-    new->next=top;
-    top=new;
+    new->next=*top;
+    *top=new;
 }
-void pop(){
+void pop(struct node **top){
     struct node *temp;
     if(top==NULL){
         printf("Stack underflow\n");
         return;
     }
-    printf("The popped number is %d \n",top->data);
-    temp=top;
-    top=top->next;
+    printf("The popped number is %d \n",(*top)->data);
+    temp=*top;
+    (*top)=(*top)->next;
     free(temp);
 }
-void display(){
+void display(struct node *disp){
     printf("\n");
-    struct node *disp;
-    disp=top;
     if(disp==NULL){
         printf("Stack is empty.\n");
     }
@@ -42,19 +40,20 @@ void display(){
     printf("\n");
 }
 int main(){
+    struct node *top=NULL;
     int n=7;
     while(n!=4){
     printf("Enter the operation you want :\n");
     printf("1.Push\n2.pop\n3.Display\n4.Exit\n");
     scanf("%d",&n);
     if(n==1){
-        push();
+        push(&top);
     }
     else if(n==2)
-        {pop();
+        {pop(&top);
             }
     else if(n==3){
-        display();
+        display(top);
         }
     else if(n==4){ 
         printf("Bye-Bye");
