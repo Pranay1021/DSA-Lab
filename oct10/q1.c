@@ -1,4 +1,4 @@
-//To implement stack of info of student using linked list 
+//To implement stack of info of student and sort it
 #include <stdio.h>
 #include <stdlib.h>
 struct student{
@@ -15,6 +15,7 @@ void push(struct node **top,struct student s){
     new->stud=s;
     if(new==NULL){
         printf("Memory not available\n");
+        return;
     }
     new->next=*top;
     *top=new;
@@ -36,6 +37,7 @@ void display(struct node *top){
     disp=top;
     if(disp==NULL){
         printf("Stack is empty.\n");
+            return;
     }
     printf("The data in the stack are:\n");
     while(disp!=NULL){

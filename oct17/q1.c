@@ -1,4 +1,4 @@
-//implementation of queue
+//implementation of circular queue
 #include <stdio.h>
 #include <stdlib.h>
 struct queue{
@@ -14,23 +14,26 @@ void enque(){
     if(top==NULL && rear ==NULL){
         top=new;
         rear=new;
-        rear->next=NULL;
+        rear->next=new;
         return;
     }
     rear->next=new;
     rear=new;
-    rear->next=NULL;
+    rear->next=top;
 }
 void deque(){
     struct queue *temp=malloc(sizeof(struct queue));
     temp=top;
     top=top->next;
+    rear->next=top;
     free(temp);
 }
 void display(struct queue *disp){
+    struct queue *start;
+    start=disp;
     printf("\n");
     printf("The data in the queue are: \n");
-    while(disp->next!=NULL){
+    while(disp->next!=start){
         printf("%d ",disp->data);
         disp=disp->next;
     }
@@ -41,7 +44,7 @@ int main(){
 int n=7;
     while(n!=4){
     printf("Enter the operation you want :\n");
-    printf("1.Insert\n2.Delete\n3.Display\n4.Exit\n");
+    printf("1.Enque\n2.Dequess\n3.Display\n4.Exit\n");
     scanf("%d",&n);
     if(n==1){
         enque();
