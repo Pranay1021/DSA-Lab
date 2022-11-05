@@ -26,7 +26,7 @@ void enque(){
         top=new;
     }
     else{
-        while(new->priority <= p->next->priority && p->next!=NULL){
+    while(new->priority <= p->next->priority && p->next!=NULL){
             p=p->next;
         }
         new->next=p->next;
